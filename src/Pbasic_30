@@ -1,0 +1,51 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/181934
+
+//첫번째 풀이 
+//처음에 문자열 비교를 == 로 하려다가 틀림... 
+//문자열 비교는 == 로 하는게 아니라 .equals() 메서드를 사용해야 한다.
+class Solution {
+    public int solution(String ineq, String eq, int n, int m) {
+        int answer = 0;
+        
+        if("<".equals(ineq) && "=".equals(eq)) { 
+            if(n <= m) { 
+                return 1;
+            } else { 
+                return 0;
+            }
+        } else if ("<".equals(ineq) && "!".equals(eq)) { 
+            if(n < m) { 
+                return 1; 
+            } else { 
+                return 0; 
+            }
+        } else if (">".equals(ineq) && "=".equals(eq)) { 
+            if(n >= m) { 
+                return 1;
+            } else { 
+                return 0;
+            }
+        } else if (">".equals(ineq) && "!".equals(eq)) { 
+            if(n > m) { 
+                return 1;
+            } else { 
+                return 0;
+            }
+        } else { 
+          return 0;
+        }
+      
+    }
+}
+//두번째 풀이
+class Solution {
+    public int solution(String ineq, String eq, int n, int m) {
+        switch(ineq + eq){ 
+            case "<=" : return n <= m ? 1 : 0; 
+            case ">=" : return n >= m ? 1 : 0;
+            case "<!" : return n < m ?  1 : 0;
+            case ">!" : return n > m ? 1 : 0;
+        }
+        return 0;
+    }
+}
