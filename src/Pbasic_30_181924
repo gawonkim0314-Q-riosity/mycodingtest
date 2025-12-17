@@ -1,0 +1,16 @@
+class Solution {
+    public int[] solution(int[] arr, int[][] queries) {
+        int[] answer = {};
+        
+        for (int k = 0; k < queries.length; k++) {
+            int i = queries[k][0];
+            int j = queries[k][1];
+            // 여기서 arr[i] <-> arr[j] 교환
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        
+        return arr;
+    }
+}
