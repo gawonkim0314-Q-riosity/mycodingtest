@@ -1,0 +1,39 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/181921
+import java.util.*;
+
+class Solution {
+    List<Integer> res = new ArrayList<>();
+    int l, r;
+
+    public int[] solution(int l, int r) {
+        this.l = l;
+        this.r = r;
+
+        dfs(5);
+
+        Collections.sort(res);
+
+        if (res.isEmpty()) return new int[]{-1};
+
+        int[] answer = new int[res.size()];
+        for (int i = 0; i < res.size(); i++) answer[i] = res.get(i);
+        return answer;
+    }
+
+    void dfs(long cur) {
+        
+        if (cur > r) return;
+        
+        if (cur >= l) {
+            res.add((int)cur);
+        }
+        
+        if (cur == 0) { dfs(5); return; }
+
+        long next0 = cur * 10 + 0;
+        long next5 = cur * 10 + 5;
+
+        dfs(next0);
+        dfs(next5);
+    }
+}
