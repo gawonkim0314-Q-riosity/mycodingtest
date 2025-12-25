@@ -1,0 +1,58 @@
+
+/// https://school.programmers.co.kr/learn/courses/30/lessons/181917
+class Solution {
+    public boolean solution(boolean x1, boolean x2, boolean x3, boolean x4) {
+        
+        boolean answer = (x1 || x2) && (x3 || x4);
+        
+        return answer;
+    }
+}
+
+/// https://school.programmers.co.kr/learn/courses/30/lessons/181915
+import java.util.*;
+
+class Solution {
+    public String solution(String my_string, int[] index_list) {
+        StringBuilder sb = new StringBuilder();
+        
+        String answer = "";
+        
+        for(int i = 0; i < index_list.length; i++){ 
+            sb.append(my_string.charAt(index_list[i]));
+        }
+        
+        answer = String.join("",sb);
+        
+        return answer;
+    }
+}
+
+/// https://school.programmers.co.kr/learn/courses/30/lessons/181918
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] arr) {
+        
+        ArrayList<Integer> stk = new ArrayList<>();
+        
+        int i = 0;
+        
+        while(i < arr.length){ 
+            if(stk.isEmpty() || stk.get(stk.size() - 1) < arr[i]){ 
+                stk.add(arr[i]);
+                i++;
+            } else { 
+                stk.remove(stk.size() - 1);
+            }            
+        }
+        
+        int[] answer = new int[stk.size()]; 
+        
+        for(int j = 0; j < stk.size(); j++){ 
+            answer[j] = stk.get(j);
+        }
+        
+        return answer;
+    }
+}
